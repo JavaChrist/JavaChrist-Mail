@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gestion des Emails</title>
+  <link rel="stylesheet" href="mail.css" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&family=Roboto:wght@100;300;400;500;700;900&display=swap"
+    rel="stylesheet" />
+</head>
+
+<body>
+  <div class="global-container">
+    <nav class="side-nav">
+      <div class="nav-logo">
+        <img src="images/logo.svg">
+        <h1>Users</h1>
+      </div>
+
+      <div class="settings-icon">
+        <img src="images/roue.svg" id="open-settings-modal" alt="Settings">
+      </div>
+
+      <a href="/index.html" class="bloc-link">
+        <img src="images/dashboard.svg">
+        <span class="nav-links">Dashboard</span>
+      </a>
+      <a href="/mail.html" class="bloc-link active">
+        <img src="images/speech-bubble.svg">
+        <span class="nav-links">Mail</span>
+      </a>
+      <a href="/data.html" class="bloc-link">
+        <img src="images/server.svg">
+        <span class="nav-links">Database</span>
+      </a>
+      <a href="/rdv.html" class="bloc-link">
+        <img src="images/calendar.svg">
+        <span class="nav-links">Calendar</span>
+      </a>
+    </nav>
+
+    <main class="main-content">
+      <section id="inbox">
+        <h2>Boîte de Réception</h2>
+        <div id="loading-spinner" class="spinner"></div>
+        <ul id="email-list">
+          <!-- Les emails reçus seront listés ici -->
+        </ul>
+      </section>
+      <section id="compose">
+        <h2>Composer un Email</h2>
+        <form id="compose-form">
+          <label for="to">À :</label>
+          <input type="email" id="to" name="to" required>
+          <label for="subject">Objet :</label>
+          <input type="text" id="subject" name="subject" required>
+          <label for="message">Message :</label>
+          <textarea id="message" name="message" required></textarea>
+          <button type="submit">Envoyer</button>
+        </form>
+      </section>
+      <section id="manage">
+        <h2>Gérer les Emails</h2>
+        <button id="delete-email">Supprimer</button>
+        <button id="mark-read">Marquer comme Lu</button>
+      </section>
+    </main>
+  </div>
+
+  <!-- Modal -->
+  <div id="settings-modal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Paramètres des Boîtes Mails</h2>
+      <form id="settings-form">
+        <div id="email-settings-container">
+          <div class="email-settings">
+            <label for="email-provider">Fournisseur de messagerie :</label>
+            <input type="text" id="email-provider" name="email-provider" required>
+            <label for="email-address">Adresse email :</label>
+            <input type="email" id="email-address" name="email-address" required>
+            <label for="email-password">Mot de passe :</label>
+            <input type="password" id="email-password" name="email-password" required>
+            <label for="pop-server">Serveur POP :</label>
+            <input type="text" id="pop-server" name="pop-server" required>
+            <label for="smtp-server">Serveur SMTP :</label>
+            <input type="text" id="smtp-server" name="smtp-server" required>
+            <label for="imap-server">Serveur IMAP :</label>
+            <input type="text" id="imap-server" name="imap-server" required>
+          </div>
+        </div>
+        <button type="button" id="add-email-settings">Ajouter une autre adresse</button>
+        <button type="submit">Enregistrer</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="mail.js"></script>
+</body>
+
+</html>
